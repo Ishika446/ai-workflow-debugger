@@ -40,7 +40,15 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
 
 app = FastAPI(title="AI Workflow Debugger")
+from fastapi.middleware.cors import CORSMiddleware
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],   # you can restrict later to your Vercel domain
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # ===========================================================================
 # Pydantic Models
@@ -580,3 +588,4 @@ if __name__ == "__main__":
             print(f"❌ The file '{target}' does not exist.")
             sys.exit(1)
         run_script_and_catch_errors(target)
+
