@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+aiofiles
+python-dotenv
+langchain-core
+langchain-google-genai
+jira
+pydantic
+mangum
